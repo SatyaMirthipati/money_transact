@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen>
           FadeTransition(
             opacity: _animation2,
             child: Text(
-              'Transact',
+              'Money Transact',
               style: textTheme.headlineMedium!.copyWith(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
