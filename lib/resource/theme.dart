@@ -8,7 +8,7 @@ class AppTheme {
   static ThemeData get theme {
     var typography = Typography.material2021(platform: defaultTargetPlatform);
     var textTheme = typography.black.apply(
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       bodyColor: Colors.black,
       displayColor: Colors.black,
     );
@@ -16,78 +16,79 @@ class AppTheme {
     var titleLarge = const TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w700,
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       color: Colors.black,
       height: 34 / 24,
-      letterSpacing: 0,
+      letterSpacing: 1,
+      fontStyle: FontStyle.normal,
     ); //done
 
     var titleMedium = const TextStyle(
       fontSize: 14,
       fontWeight: FontWeight.w600,
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       height: 20 / 14,
       color: Colors.black,
-      letterSpacing: 0,
+      letterSpacing: 0.5,
     ); //done
 
     var titleSmall = const TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w500,
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       height: 17 / 14,
       color: Colors.black,
-      letterSpacing: 0,
+      letterSpacing: 0.5,
     ); //done
 
     var labelLarge = const TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w600,
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       height: 1,
       color: Colors.black,
-      letterSpacing: 0,
+      letterSpacing: 0.5,
     ); //done
 
     var labelSmall = const TextStyle(
       fontSize: 10,
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       fontWeight: FontWeight.w400,
       height: 15 / 12,
       color: MyColors.primaryColor,
-      letterSpacing: 0,
+      letterSpacing: 0.5,
     ); //done
 
     var bodyLarge = const TextStyle(
-      fontFamily: 'Inter',
+      fontFamily: 'Orbitron',
       fontWeight: FontWeight.w700,
       fontSize: 16,
       height: 1,
       color: Colors.black,
       fontStyle: FontStyle.normal,
-      letterSpacing: 0,
+      letterSpacing: 0.5,
     );
 
     var bodyMedium = TextStyle(
-      fontFamily: 'Inter',
+      fontFamily: 'Orbitron',
       fontWeight: FontWeight.w500,
       fontSize: 14,
       height: 1,
       color: Colors.black.withOpacity(0.7),
       fontStyle: FontStyle.normal,
-      letterSpacing: 0,
+      letterSpacing: 0.5,
     );
 
     var bodySmall = const TextStyle(
       fontSize: 12,
       fontWeight: FontWeight.w400,
-      fontFamily: 'Inter',
+      fontFamily: 'Orbitron',
       letterSpacing: 0,
       color: Colors.black,
     ); //done
 
     var headlineMedium = const TextStyle(
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       fontWeight: FontWeight.w600,
       fontSize: 24,
       height: 32 / 24,
@@ -98,7 +99,7 @@ class AppTheme {
 
     var headlineSmall = const TextStyle(
       fontSize: 30,
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       fontWeight: FontWeight.w600,
       height: 38 / 30,
       color: Colors.black,
@@ -108,7 +109,7 @@ class AppTheme {
 
     var displaySmall = const TextStyle(
       fontSize: 10,
-      fontFamily: 'OutFit',
+      fontFamily: 'Orbitron',
       fontWeight: FontWeight.w600,
       height: 1.1,
       color: MyColors.primaryColor,
@@ -136,7 +137,7 @@ class AppTheme {
     );
 
     return ThemeData(
-      fontFamily: 'Poppins',
+      fontFamily: 'Orbitron',
       scaffoldBackgroundColor: Colors.white,
       textSelectionTheme: TextSelectionThemeData(
         cursorColor: Colors.black,
@@ -196,7 +197,8 @@ class AppTheme {
         style: TextButton.styleFrom(
           foregroundColor: MyColors.primaryColor,
           padding: EdgeInsets.zero,
-          textStyle: titleMedium.copyWith(fontSize: 14),
+          textStyle: titleMedium.copyWith(fontSize: 12),
+          shape: const RoundedRectangleBorder(),
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
@@ -239,12 +241,12 @@ class AppTheme {
         ),
         labelStyle: titleSmall.copyWith(
           color: Colors.black.withOpacity(0.7),
-          fontSize: 12,
+          fontSize: 14,
         ),
         border: border,
         enabledBorder: border,
         focusedBorder: border,
-        floatingLabelBehavior: FloatingLabelBehavior.always,
+        floatingLabelBehavior: FloatingLabelBehavior.auto,
       ),
       iconTheme: const IconThemeData(color: Colors.black, size: 24),
       dividerTheme: const DividerThemeData(
