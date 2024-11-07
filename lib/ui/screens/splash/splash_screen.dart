@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:money_transact/resource/images.dart';
-import 'package:money_transact/ui/auth/login_screen.dart';
+
+import '../../../resource/images.dart';
+import '../auth/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

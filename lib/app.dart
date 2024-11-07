@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'resource/theme.dart';
-import 'ui/splash/splash_screen.dart';
+import 'ui/screens/splash/splash_screen.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
