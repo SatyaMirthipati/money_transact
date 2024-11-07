@@ -2,16 +2,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class Prefs {
   static const String token = "token";
-  static const String type = "type";
-  static const String store = "store";
   static const String userId = "userId";
-  static const String profileId = "profileId";
   static const String fullName = "fullName";
   static const String email = "email";
   static const String phone = "phone";
   static const String avatar = "avatar";
   static const String brightness = "brightness";
-  static const String nodeToken = "nodeToken";
   static const String restoreId = "locationId";
 
   static Future<bool> clearPrefs() async {
@@ -39,16 +35,6 @@ class Prefs {
     return prefs.getString(token);
   }
 
-  static Future<bool> setUserType(String value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.setString(type, value);
-  }
-
-  static Future<String?> getUserType() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(type);
-  }
-
   static Future<String> getRestoreId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.get(restoreId).toString();
@@ -57,26 +43,6 @@ class Prefs {
   static Future setRestoreId(String value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.setString(restoreId, value);
-  }
-
-  static Future<bool> setNodeToken(String value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.setString(nodeToken, 'Bearer $value');
-  }
-
-  static Future<String?> getNodeToken() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(nodeToken);
-  }
-
-  static Future<bool> setStoreCode(String value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.setString(store, value);
-  }
-
-  static Future<String?> getStoreCode() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(store);
   }
 
   static Future<bool> setDays(String key, int value) async {
@@ -97,16 +63,6 @@ class Prefs {
   static Future<int?> getUserId() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getInt(userId);
-  }
-
-  static Future<bool?> setProfileId(String value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.setString(profileId, value);
-  }
-
-  static Future<String?> getProfileId() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    return prefs.getString(profileId);
   }
 
   static Future<String?> getEmail() async {
