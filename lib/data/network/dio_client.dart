@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 import '../local/shared_prefs.dart';
 import 'api_client.dart';
@@ -17,17 +18,18 @@ class DioClient implements ApiClient {
       receiveTimeout: const Duration(milliseconds: 100000),
     );
 
-    dio.interceptors
-      ..add(CacheInterceptor())
-      ..add(
+    dio.interceptors.add(CacheInterceptor());
+    if (kDebugMode) {
+      dio.interceptors.add(
         PrettyDioLogger(
           maxWidth: 80,
           error: true,
           request: true,
-          requestHeader: true,
+          requestHeader: false,
           requestBody: true,
         ),
       );
+    }
   }
 
   Future<Options> getOptions({String? t}) async {
@@ -37,7 +39,6 @@ class DioClient implements ApiClient {
       headers['Authorization'] = token;
     }
     headers['Content-Type'] = 'application/json';
-    print(headers);
     return Options(
       headers: headers,
       responseType: ResponseType.json,
