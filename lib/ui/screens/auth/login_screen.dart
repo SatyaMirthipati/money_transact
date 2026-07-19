@@ -142,9 +142,7 @@ class _LoginScreenState extends State<LoginScreen>
       ),
       extendBody: true,
       bottomNavigationBar: NavbarButton(
-        onPressed: () async {
-          await
-        },
+        onPressed: () {},
         child: const Text('Submit'),
       ),
     );
