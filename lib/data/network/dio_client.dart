@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 import '../local/shared_prefs.dart';
 import 'api_client.dart';
@@ -65,8 +66,10 @@ class DioClient implements ApiClient {
       );
       return response.data;
     } on Exception catch (e) {
-      print('Error occurred during GET request: $e');
-      return e;
+      if (kDebugMode) {
+        print('Error occurred during GET request: $e');
+      }
+      rethrow;
     }
   }
 
