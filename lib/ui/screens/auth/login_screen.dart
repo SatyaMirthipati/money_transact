@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:money_transact/ui/widgets/error_snackbar.dart';
 
 import '../../../resource/images.dart';
+import '../../../utils/helper.dart';
 import '../../widgets/navbar_button.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -73,12 +74,7 @@ class _LoginScreenState extends State<LoginScreen>
               style: textTheme.titleMedium,
               keyboardType: TextInputType.text,
               decoration: const InputDecoration(labelText: 'Username'),
-              validator: (text) {
-                if (text?.trim().isEmpty ?? true) {
-                  return 'This field cannot be empty';
-                }
-                return null;
-              },
+              validator: Validators.required,
             ),
             const SizedBox(height: 25),
             TextFormField(
@@ -96,12 +92,7 @@ class _LoginScreenState extends State<LoginScreen>
                   onPressed: () => setState(() => showPassword = !showPassword),
                 ),
               ),
-              validator: (text) {
-                if (text?.trim().isEmpty ?? true) {
-                  return 'This field cannot be empty';
-                }
-                return null;
-              },
+              validator: Validators.required,
             ),
             const SizedBox(height: 10),
             Align(
@@ -151,9 +142,7 @@ class _LoginScreenState extends State<LoginScreen>
       ),
       extendBody: true,
       bottomNavigationBar: NavbarButton(
-        onPressed: () async {
-          await
-        },
+        onPressed: () {},
         child: const Text('Submit'),
       ),
     );

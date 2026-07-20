@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class CacheInterceptor extends Interceptor {
   CacheInterceptor();
@@ -36,7 +37,9 @@ class CacheInterceptor extends Interceptor {
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) {
-    print('onError: $err');
+    if (kDebugMode) {
+      print('onError: $err');
+    }
     handler.next(err);
   }
 }

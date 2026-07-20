@@ -66,8 +66,10 @@ class DioClient implements ApiClient {
       );
       return response.data;
     } on Exception catch (e) {
-      print('Error occurred during GET request: $e');
-      return e;
+      if (kDebugMode) {
+        print('Error occurred during GET request: $e');
+      }
+      rethrow;
     }
   }
 

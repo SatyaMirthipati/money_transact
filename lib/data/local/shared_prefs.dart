@@ -10,78 +10,81 @@ class Prefs {
   static const String brightness = "brightness";
   static const String restoreId = "locationId";
 
+  static Future<SharedPreferences> get _prefs =>
+      SharedPreferences.getInstance();
+
   static Future<bool> clearPrefs() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return await prefs.clear();
   }
 
   static Future<bool> setBrightness(bool isDark) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.setBool(brightness, isDark);
   }
 
   static Future<bool?> getBrightness() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getBool(brightness);
   }
 
   static Future<bool> setToken(String value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.setString(token, 'Bearer $value');
   }
 
   static Future<String?> getToken() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getString(token);
   }
 
   static Future<String> getRestoreId() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.get(restoreId).toString();
   }
 
   static Future setRestoreId(String value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.setString(restoreId, value);
   }
 
   static Future<bool> setDays(String key, int value) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.setInt(key, value);
   }
 
   static Future<int?> getDays(String key) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getInt(key);
   }
 
   static Future<String?> getName() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getString(fullName);
   }
 
   static Future<int?> getUserId() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getInt(userId);
   }
 
   static Future<String?> getEmail() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getString(email);
   }
 
   static Future<String?> getMobile() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getString(phone);
   }
 
   static Future<String?> getAvatar() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     return prefs.getString(avatar);
   }
 
   static Future<List<String>> getSearchList() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     var list = prefs.getStringList('search');
     print('list = $list');
     return list ?? [];
@@ -92,7 +95,7 @@ class Prefs {
     if (list.contains(query)) return false;
     list.add(query);
     if (list.length > 3) list.removeAt(0);
-    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final prefs = await _prefs;
     print(list);
     return prefs.setStringList('search', list);
   }
