@@ -1,4 +1,7 @@
 storePassword=your-store-password
 keyPassword=your-key-password
 keyAlias=your-key-alias
+
+storeFile=path/to/your/keystore.jks
+
 storeFile=/absolute/path/to/your-release-keystore.jks
